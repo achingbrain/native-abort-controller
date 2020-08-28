@@ -1,6 +1,6 @@
 {
   "name": "native-abort-controller",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Returns native AbortController/AbortSignal if available or the abort-controller module if not",
   "main": "src/index.js",
   "scripts": {
@@ -24,5 +24,8 @@
     "abort-controller": "^3.0.0",
     "aegir": "^26.0.0",
     "globalthis": "^1.0.1"
-  }
+  },
+  "contributors": [
+    "achingbrain <alex@achingbrain.net>"
+  ]
 }
