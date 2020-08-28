@@ -1,4 +1,4 @@
-# native-abort-controller
+# native-abort-controller
 
 > Returns native AbortController/AbortSignal if available or the abort-controller module if not
 
@@ -12,7 +12,7 @@ Instead we can check for the availability of a given API and return it, rather t
 
 This module may become unecessary if [mysticatea/abort-controller#24](https://github.com/mysticatea/abort-controller/issues/24) is resolved.
 
-## Install
+## Install
 
 You must install a version of `abort-controller` [alongside this module](https://docs.npmjs.com/files/package.json#peerdependencies) to be used if a native implementation is not available.
 
