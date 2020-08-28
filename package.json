@@ -2,16 +2,20 @@
   "name": "native-abort-controller",
   "version": "0.0.1",
   "description": "Returns native AbortController/AbortSignal if available or the abort-controller module if not",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "aegir test -t node -t browser -t webworker -t electron-main -t electron-renderer",
     "lint": "aegir lint",
-    "release": "aegir release",
-    "release-minor": "aegir release --type minor",
-    "release-major": "aegir release --type major"
+    "release": "aegir release --docs false",
+    "release-minor": "aegir release --type minor --docs false",
+    "release-major": "aegir release --type major --docs false"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Alex Potsides <alex@achingbrain.net>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/achingbrain/native-abort-controller.git"
+  },
   "dependencies": {},
   "peerDependencies": {
     "abort-controller": "*"
