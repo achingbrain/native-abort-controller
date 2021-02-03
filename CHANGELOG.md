@@ -1,3 +1,12 @@
+## [1.0.1](https://github.com/achingbrain/native-abort-controller/compare/v1.0.0...v1.0.1) (2021-02-03)
+
+
+### Features
+
+* add types ([#2](https://github.com/achingbrain/native-abort-controller/issues/2)) ([20454bf](https://github.com/achingbrain/native-abort-controller/commit/20454bff4480e5d14d0e593d1d623cc4b15eb7f2))
+
+
+
 # [1.0.0](https://github.com/achingbrain/native-abort-controller/compare/v0.0.3...v1.0.0) (2021-02-03)
 
 
