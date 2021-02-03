@@ -1,3 +1,17 @@
+# [1.0.0](https://github.com/achingbrain/native-abort-controller/compare/v0.0.3...v1.0.0) (2021-02-03)
+
+
+### Bug Fixes
+
+* do not extend abort controller ([#1](https://github.com/achingbrain/native-abort-controller/issues/1)) ([8f6c4ec](https://github.com/achingbrain/native-abort-controller/commit/8f6c4ec088c516d6844a87e1cd19ef094ae9be3b))
+
+
+### BREAKING CHANGES
+
+* you must now used named imports instead of the default
+
+
+
 <a name="0.0.3"></a>
 ## [0.0.3](https://github.com/achingbrain/native-abort-controller/compare/v0.0.2...v0.0.3) (2020-08-28)
 
