@@ -5,10 +5,18 @@ const { expect } = require('aegir/utils/chai')
 const { AbortController: NativeAbortController } = require('../src')
 const { AbortController: AbortControllerPollyfill } = require('abort-controller')
 
+/** @type {number} */
 let nodeVersion
 
 if (globalThis.process && globalThis.process.version) {
-  nodeVersion = parseInt(globalThis.process.version.match(/v(\d+)\./)[1], 10)
+  const version = `${globalThis.process.version}`
+  const matches = version.match(/v(\d+)\./)
+
+  if (!matches || !matches.length) {
+    throw new Error(`Could not determine node version from "${version}"`)
+  }
+
+  nodeVersion = parseInt(matches[1], 10)
 }
 
 describe('env', function () {
