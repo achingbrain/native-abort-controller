@@ -6,6 +6,12 @@ const { AbortController: NativeAbortController } = require('../src')
 const { AbortController: AbortControllerPollyfill } = require('abort-controller')
 const globalthis = require('globalthis')()
 
+let nodeVersion
+
+if (globalthis.process && globalthis.process.version) {
+  nodeVersion = parseInt(globalthis.process.version.match(/v(\d+)\./)[1], 10)
+}
+
 describe('env', function () {
   it('AbortController should be correct in each env', function () {
     switch (process.env.AEGIR_RUNNER) {
@@ -20,9 +26,7 @@ describe('env', function () {
         expect(globalthis.AbortController).to.be.ok()
         break
       case 'node':
-        const version = parseInt(process.version.match(/v(\d+)\./)[1], 10)
-
-        if (version < 15) {
+        if (nodeVersion < 15) {
           expect(NativeAbortController).to.equal(AbortControllerPollyfill)
           expect(new NativeAbortController()).to.be.instanceOf(AbortControllerPollyfill)
           expect(globalthis.AbortController).to.be.undefined()
