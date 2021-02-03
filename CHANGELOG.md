@@ -1,3 +1,12 @@
+## [1.0.2](https://github.com/achingbrain/native-abort-controller/compare/v1.0.1...v1.0.2) (2021-02-03)
+
+
+### Bug Fixes
+
+* update types path ([#3](https://github.com/achingbrain/native-abort-controller/issues/3)) ([eaa8a5a](https://github.com/achingbrain/native-abort-controller/commit/eaa8a5aa71c206970a8cd7b3c38475008e9cffd6))
+
+
+
 ## [1.0.1](https://github.com/achingbrain/native-abort-controller/compare/v1.0.0...v1.0.1) (2021-02-03)
 
 
