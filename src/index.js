@@ -1,11 +1,15 @@
 'use strict'
 
 const globalThis = require('globalthis')()
+let impl
 
 if (globalThis.AbortController && globalThis.AbortSignal) {
-  module.exports = class AbortController extends globalThis.AbortController {}
-  module.exports.AbortSignal = globalThis.AbortSignal
-  module.exports.default = module.exports
+  impl = globalThis
 } else {
-  module.exports = require('abort-controller')
+  impl = require('abort-controller')
+}
+
+module.exports = {
+  AbortController: impl.AbortController,
+  AbortSignal: impl.AbortSignal
 }

@@ -2,9 +2,15 @@
 
 /* eslint-env mocha */
 const { expect } = require('aegir/utils/chai')
-const NativeAbortController = require('../src')
-const AbortControllerPollyfill = require('abort-controller')
+const { AbortController: NativeAbortController } = require('../src')
+const { AbortController: AbortControllerPollyfill } = require('abort-controller')
 const globalthis = require('globalthis')()
+
+let nodeVersion
+
+if (globalthis.process && globalthis.process.version) {
+  nodeVersion = parseInt(globalthis.process.version.match(/v(\d+)\./)[1], 10)
+}
 
 describe('env', function () {
   it('AbortController should be correct in each env', function () {
@@ -20,9 +26,16 @@ describe('env', function () {
         expect(globalthis.AbortController).to.be.ok()
         break
       case 'node':
-        expect(NativeAbortController).to.equal(AbortControllerPollyfill)
-        expect(new NativeAbortController()).to.be.instanceOf(AbortControllerPollyfill)
-        expect(globalthis.AbortController).to.be.undefined()
+        if (nodeVersion < 15) {
+          expect(NativeAbortController).to.equal(AbortControllerPollyfill)
+          expect(new NativeAbortController()).to.be.instanceOf(AbortControllerPollyfill)
+          expect(globalthis.AbortController).to.be.undefined()
+        } else {
+          // node 15+ gets native AbortController
+          expect(NativeAbortController).to.not.equal(AbortControllerPollyfill)
+          expect(new NativeAbortController()).to.be.instanceOf(globalthis.AbortController)
+          expect(globalthis.AbortController).to.be.ok()
+        }
         break
       case 'browser':
         expect(NativeAbortController).to.not.equal(AbortControllerPollyfill)
