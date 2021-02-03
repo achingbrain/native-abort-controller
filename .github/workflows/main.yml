@@ -19,7 +19,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [windows-latest, ubuntu-latest, macos-latest]
+        os: [ubuntu-latest]
         node: [14, 15]
       fail-fast: true
     steps:
@@ -28,21 +28,21 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
       - run: npm install
-      - run: npm test
+      - run: npx xvfb-maybe npm test
   test-chrome:
     needs: check
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - run: npm install
-      - run: npm test
+      - run: npx xvfb-maybe npm test
   test-firefox:
     needs: check
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - run: npm install
-      - run: npm test
+      - run: npx xvfb-maybe npm test
   test-electron-main:
     needs: check
     runs-on: ubuntu-latest
