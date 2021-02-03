@@ -4,12 +4,11 @@
 const { expect } = require('aegir/utils/chai')
 const { AbortController: NativeAbortController } = require('../src')
 const { AbortController: AbortControllerPollyfill } = require('abort-controller')
-const globalthis = require('globalthis')()
 
 let nodeVersion
 
-if (globalthis.process && globalthis.process.version) {
-  nodeVersion = parseInt(globalthis.process.version.match(/v(\d+)\./)[1], 10)
+if (globalThis.process && globalThis.process.version) {
+  nodeVersion = parseInt(globalThis.process.version.match(/v(\d+)\./)[1], 10)
 }
 
 describe('env', function () {
@@ -18,34 +17,34 @@ describe('env', function () {
       case 'electron-main':
         expect(NativeAbortController).to.equal(AbortControllerPollyfill)
         expect(new NativeAbortController()).to.be.instanceOf(AbortControllerPollyfill)
-        expect(globalthis.AbortController).to.be.undefined()
+        expect(globalThis.AbortController).to.be.undefined()
         break
       case 'electron-renderer':
         expect(NativeAbortController).to.not.equal(AbortControllerPollyfill)
-        expect(new NativeAbortController()).to.be.instanceOf(globalthis.AbortController)
-        expect(globalthis.AbortController).to.be.ok()
+        expect(new NativeAbortController()).to.be.instanceOf(globalThis.AbortController)
+        expect(globalThis.AbortController).to.be.ok()
         break
       case 'node':
         if (nodeVersion < 15) {
           expect(NativeAbortController).to.equal(AbortControllerPollyfill)
           expect(new NativeAbortController()).to.be.instanceOf(AbortControllerPollyfill)
-          expect(globalthis.AbortController).to.be.undefined()
+          expect(globalThis.AbortController).to.be.undefined()
         } else {
           // node 15+ gets native AbortController
           expect(NativeAbortController).to.not.equal(AbortControllerPollyfill)
-          expect(new NativeAbortController()).to.be.instanceOf(globalthis.AbortController)
-          expect(globalthis.AbortController).to.be.ok()
+          expect(new NativeAbortController()).to.be.instanceOf(globalThis.AbortController)
+          expect(globalThis.AbortController).to.be.ok()
         }
         break
       case 'browser':
         expect(NativeAbortController).to.not.equal(AbortControllerPollyfill)
-        expect(new NativeAbortController()).to.be.instanceOf(globalthis.AbortController)
-        expect(globalthis.AbortController).to.be.ok()
+        expect(new NativeAbortController()).to.be.instanceOf(globalThis.AbortController)
+        expect(globalThis.AbortController).to.be.ok()
         break
       case 'webworker':
         expect(NativeAbortController).to.not.equal(AbortControllerPollyfill)
-        expect(new NativeAbortController()).to.be.instanceOf(globalthis.AbortController)
-        expect(globalthis.AbortController).to.be.ok()
+        expect(new NativeAbortController()).to.be.instanceOf(globalThis.AbortController)
+        expect(globalThis.AbortController).to.be.ok()
         break
       default:
         expect.fail(`Could not detect env. Current env is ${process.env.AEGIR_RUNNER}`)

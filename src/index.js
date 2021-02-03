@@ -1,6 +1,5 @@
 'use strict'
 
-const globalThis = require('globalthis')()
 let impl
 
 if (globalThis.AbortController && globalThis.AbortSignal) {
