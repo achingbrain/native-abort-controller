@@ -2,7 +2,7 @@
 
 let impl
 
-if (globalThis.AbortController && globalThis.AbortSignal) {
+if (typeof globalThis !== "undefined" && globalThis.AbortController && globalThis.AbortSignal) {
   impl = globalThis
 } else {
   impl = require('abort-controller')
