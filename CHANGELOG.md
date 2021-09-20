@@ -1,3 +1,12 @@
+## [1.0.4](https://github.com/achingbrain/native-abort-controller/compare/v1.0.3...v1.0.4) (2021-09-20)
+
+
+### Bug Fixes
+
+* long form export makes node better at spotting named exports ([5086c53](https://github.com/achingbrain/native-abort-controller/commit/5086c537fd807801eb77ecb22aa25ddbca8219d7))
+
+
+
 ## [1.0.3](https://github.com/achingbrain/native-abort-controller/compare/v1.0.2...v1.0.3) (2021-02-03)
 
 
