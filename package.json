@@ -11,7 +11,6 @@
   "scripts": {
     "test": "aegir test -t node -t browser -t webworker -t electron-main -t electron-renderer",
     "lint": "aegir lint && aegir ts -p check",
-    "prepare": "aegir build --no-bundle",
     "release": "aegir release --docs false",
     "release-minor": "aegir release --type minor --docs false",
     "release-major": "aegir release --type major --docs false"
